@@ -1,0 +1,745 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Premier Home Solutions | We Buy & Renovate Homes</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            /* Primary Colors */
+            --color-primary: 29, 78, 216; /* blue-600 */
+            --color-primary-light: 59, 130, 246; /* blue-500 */
+            --color-primary-dark: 30, 64, 175; /* blue-700 */
+            
+            /* Secondary Colors */
+            --color-secondary: 245, 158, 11; /* amber-500 */
+            --color-secondary-light: 251, 191, 36; /* amber-400 */
+            --color-secondary-dark: 217, 119, 6; /* amber-600 */
+            
+            /* Neutral Colors */
+            --color-gray-50: 248, 250, 252;
+            --color-gray-100: 241, 245, 249;
+            --color-gray-200: 226, 232, 240;
+            --color-gray-300: 203, 213, 225;
+            --color-gray-400: 148, 163, 184;
+            --color-gray-500: 100, 116, 139;
+            --color-gray-600: 71, 85, 105;
+            --color-gray-700: 51, 65, 85;
+            --color-gray-800: 30, 41, 59;
+            --color-gray-900: 15, 23, 42;
+            
+            /* Semantic Colors */
+            --color-success: 16, 185, 129; /* emerald-500 */
+            --color-warning: 234, 179, 8; /* yellow-500 */
+            --color-error: 239, 68, 68; /* red-500 */
+            
+            /* Theme Variables */
+            --text-primary: var(--color-gray-900);
+            --text-secondary: var(--color-gray-600);
+            --bg-primary: var(--color-gray-50);
+            --bg-secondary: var(--color-gray-100);
+            --bg-dark: var(--color-gray-900);
+            
+            /* Component Variables */
+            --button-primary-bg: var(--color-primary);
+            --button-primary-text: 255, 255, 255;
+            --button-primary-hover: var(--color-primary-dark);
+            
+            --button-secondary-bg: 255, 255, 255;
+            --button-secondary-text: var(--color-primary);
+            --button-secondary-hover: var(--color-gray-100);
+            
+            --card-bg: 255, 255, 255;
+            --card-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            --card-hover-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+            
+            --section-padding: 4rem;
+        }
+
+        /* Base Styles */
+        body {
+            --bg-opacity: 1;
+            background-color: rgba(var(--bg-primary), var(--bg-opacity));
+            color: rgba(var(--text-primary), 1);
+            font-family: 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+        }
+
+        /* Text Colors */
+        .text-primary {
+            color: rgba(var(--text-primary), 1);
+        }
+        
+        .text-secondary {
+            color: rgba(var(--text-secondary), 1);
+        }
+        
+        .text-success {
+            color: rgba(var(--color-success), 1);
+        }
+        
+        /* Background Colors */
+        .bg-primary {
+            background-color: rgba(var(--bg-primary), 1);
+        }
+        
+        .bg-secondary {
+            background-color: rgba(var(--bg-secondary), 1);
+        }
+        
+        .bg-dark {
+            background-color: rgba(var(--bg-dark), 1);
+        }
+        
+        .bg-brand {
+            background-color: rgba(var(--color-primary), 1);
+        }
+        
+        .bg-brand-dark {
+            background-color: rgba(var(--color-primary-dark), 1);
+        }
+        
+        /* Buttons */
+        .btn-primary {
+            background-color: rgba(var(--button-primary-bg), 1);
+            color: rgba(var(--button-primary-text), 1);
+        }
+        
+        .btn-primary:hover {
+            background-color: rgba(var(--button-primary-hover), 1);
+        }
+        
+        .btn-secondary {
+            background-color: rgba(var(--button-secondary-bg), 1);
+            color: rgba(var(--button-secondary-text), 1);
+        }
+        
+        .btn-secondary:hover {
+            background-color: rgba(var(--button-secondary-hover), 1);
+        }
+        
+        /* Cards */
+        .card {
+            background-color: rgba(var(--card-bg), 1);
+            box-shadow: var(--card-shadow);
+        }
+        
+        .card:hover {
+            box-shadow: var(--card-hover-shadow);
+        }
+        
+        /* Hero Section */
+        .hero {
+            background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://images.unsplash.com/photo-1560518883-ce09059eeffa?ixlib=rb-4.0.3');
+            background-size: cover;
+            background-position: center;
+            min-height: 80vh;
+        }
+        
+        /* Property Cards */
+        .property-card {
+            transition: all 0.3s ease;
+        }
+        
+        .property-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--card-hover-shadow);
+        }
+        
+        /* Testimonials */
+        .testimonial-card {
+            transition: all 0.3s ease;
+        }
+        
+        .testimonial-card:hover {
+            background-color: rgba(var(--bg-secondary), 1);
+        }
+        
+        /* Navigation */
+        .nav-link {
+            transition: color 0.3s ease;
+        }
+        
+        .nav-link:hover {
+            color: rgba(var(--color-secondary), 1);
+        }
+        
+        /* Responsive Adjustments */
+        @media (max-width: 768px) {
+            :root {
+                --section-padding: 3rem;
+            }
+            
+            .hero {
+                min-height: 60vh;
+            }
+        }
+    </style>
+</head>
+<body class="font-sans">
+    <!-- Navigation -->
+    <nav class="bg-white shadow-lg sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-20 items-center">
+                <div class="flex items-center">
+                    <div class="flex-shrink-0">
+                        <i class="fas fa-home text-3xl text-brand"></i>
+                    </div>
+                    <div class="ml-4">
+                        <span class="text-xl font-bold text-primary">Premier Home Solutions</span>
+                    </div>
+                </div>
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-8">
+                        <a href="#home" class="nav-link text-primary hover:text-secondary px-3 py-2 rounded-md text-sm font-medium">Home</a>
+                        <a href="#sell" class="nav-link text-primary hover:text-secondary px-3 py-2 rounded-md text-sm font-medium">Sell Your Home</a>
+                        <a href="#portfolio" class="nav-link text-primary hover:text-secondary px-3 py-2 rounded-md text-sm font-medium">Our Portfolio</a>
+                        <a href="#about" class="nav-link text-primary hover:text-secondary px-3 py-2 rounded-md text-sm font-medium">About Us</a>
+                        <a href="#contact" class="nav-link text-primary hover:text-secondary px-3 py-2 rounded-md text-sm font-medium">Contact</a>
+                    </div>
+                </div>
+                <div class="md:hidden">
+                    <button class="mobile-menu-button p-2 rounded-md text-primary hover:text-secondary focus:outline-none">
+                        <i class="fas fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Mobile menu -->
+        <div class="mobile-menu hidden md:hidden bg-white">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <a href="#home" class="block px-3 py-2 rounded-md text-base font-medium text-primary hover:text-secondary">Home</a>
+                <a href="#sell" class="block px-3 py-2 rounded-md text-base font-medium text-primary hover:text-secondary">Sell Your Home</a>
+                <a href="#portfolio" class="block px-3 py-2 rounded-md text-base font-medium text-primary hover:text-secondary">Our Portfolio</a>
+                <a href="#about" class="block px-3 py-2 rounded-md text-base font-medium text-primary hover:text-secondary">About Us</a>
+                <a href="#contact" class="block px-3 py-2 rounded-md text-base font-medium text-primary hover:text-secondary">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero flex items-center justify-center text-center text-white">
+        <div class="px-4 py-16 max-w-3xl mx-auto">
+            <h1 class="text-4xl md:text-6xl font-bold mb-6">We Buy Homes Fast, Cash Offers</h1>
+            <p class="text-xl md:text-2xl mb-8">Sell your home quickly with no repairs, no showings, and no hassle. Over 25 years of experience in the local real estate market.</p>
+            <div class="flex flex-col sm:flex-row justify-center gap-4">
+                <a href="#sell" class="btn-primary font-bold py-3 px-6 rounded-lg transition duration-300">Get Your Cash Offer</a>
+                <a href="#portfolio" class="btn-secondary font-bold py-3 px-6 rounded-lg transition duration-300">See Our Renovations</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Us -->
+    <section class="py-16 bg-secondary">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-extrabold text-primary sm:text-4xl">Why Choose Premier Home Solutions</h2>
+                <p class="mt-4 max-w-2xl text-xl text-secondary mx-auto">We make selling your home simple, fast, and stress-free.</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="card p-8 rounded-lg text-center">
+                    <div class="mx-auto flex items-center justify-center h-12 w-12 rounded-full bg-blue-100 text-brand mb-4">
+                        <i class="fas fa-money-bill-wave text-xl"></i>
+                    </div>
+                    <h3 class="text-lg font-medium text-primary mb-2">Fair Cash Offers</h3>
+                    <p class="text-secondary">Get a competitive cash offer within 24 hours, based on your home's current condition.</p>
+                </div>
+                
+                <div class="card p-8 rounded-lg text-center">
+                    <div class="mx-auto flex items-center justify-center h-12 w-12 rounded-full bg-blue-100 text-brand mb-4">
+                        <i class="fas fa-clock text-xl"></i>
+                    </div>
+                    <h3 class="text-lg font-medium text-primary mb-2">Fast Closing</h3>
+                    <p class="text-secondary">Close in as little as 7 days or choose your preferred timeline - the choice is yours.</p>
+                </div>
+                
+                <div class="card p-8 rounded-lg text-center">
+                    <div class="mx-auto flex items-center justify-center h-12 w-12 rounded-full bg-blue-100 text-brand mb-4">
+                        <i class="fas fa-home text-xl"></i>
+                    </div>
+                    <h3 class="text-lg font-medium text-primary mb-2">No Repairs Needed</h3>
+                    <p class="text-secondary">We buy homes as-is. No cleaning, no repairs, no staging required.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sell Your Home Section -->
+    <section id="sell" class="py-16 bg-primary">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="lg:grid lg:grid-cols-2 lg:gap-8 items-center">
+                <div class="mb-12 lg:mb-0">
+                    <h2 class="text-3xl font-extrabold sm:text-4xl mb-6">Sell Your Home in 3 Simple Steps</h2>
+                    <div class="space-y-8">
+                        <div class="flex">
+                            <div class="flex-shrink-0">
+                                <div class="flex items-center justify-center h-12 w-12 rounded-md bg-white text-brand font-bold text-xl">1</div>
+                            </div>
+                            <div class="ml-4">
+                                <h3 class="text-lg font-medium ">Submit Your Property Details</h3>
+                                <p class="mt-2 text-secondary">Fill out our simple form or give us a call with basic information about your home.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex">
+                            <div class="flex-shrink-0">
+                                <div class="flex items-center justify-center h-12 w-12 rounded-md bg-white text-brand font-bold text-xl">2</div>
+                            </div>
+                            <div class="ml-4">
+                                <h3 class="text-lg font-medium ">Receive Your Cash Offer</h3>
+                                <p class="mt-2 text-secondary">We'll evaluate your property and present you with a fair cash offer within 24 hours.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex">
+                            <div class="flex-shrink-0">
+                                <div class="flex items-center justify-center h-12 w-12 rounded-md bg-white text-brand font-bold text-xl">3</div>
+                            </div>
+                            <div class="ml-4">
+                                <h3 class="text-lg font-medium ">Close on Your Timeline</h3>
+                                <p class="mt-2 text-secondary">Choose your closing date and get paid - it's that simple!</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="card p-8 rounded-lg">
+                    <h3 class="text-2xl font-bold text-primary mb-6">Get Your Cash Offer Today</h3>
+                    <form id="offerForm" class="space-y-4">
+                        <div>
+                            <label for="name" class="block text-sm font-medium text-secondary">Full Name</label>
+                            <input type="text" id="name" name="name" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-brand focus:border-brand">
+                        </div>
+                        
+                        <div>
+                            <label for="email" class="block text-sm font-medium text-secondary">Email Address</label>
+                            <input type="email" id="email" name="email" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-brand focus:border-brand">
+                        </div>
+                        
+                        <div>
+                            <label for="phone" class="block text-sm font-medium text-secondary">Phone Number</label>
+                            <input type="tel" id="phone" name="phone" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-brand focus:border-brand">
+                        </div>
+                        
+                        <div>
+                            <label for="address" class="block text-sm font-medium text-secondary">Property Address</label>
+                            <input type="text" id="address" name="address" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-brand focus:border-brand">
+                        </div>
+                        
+                        <div>
+                            <label for="details" class="block text-sm font-medium text-secondary">Property Details (bedrooms, bathrooms, condition)</label>
+                            <textarea id="details" name="details" rows="3" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-brand focus:border-brand"></textarea>
+                        </div>
+                        
+                        <div>
+                            <button type="submit" class="w-full btn-primary py-3 px-4 rounded-md shadow-sm text-sm font-medium focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-brand">
+                                Get My Cash Offer
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section id="portfolio" class="py-16 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-extrabold text-primary sm:text-4xl">Our Renovation Portfolio</h2>
+                <p class="mt-4 max-w-2xl text-xl text-secondary mx-auto">See how we transform properties into beautiful homes</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Property 1 -->
+                <div class="property-card rounded-lg overflow-hidden">
+                    <div class="relative pb-2/3 h-64 overflow-hidden">
+                        <img class="absolute h-full w-full object-cover" src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3" alt="Renovated property">
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center mb-2">
+                            <span class="text-brand font-semibold">Before & After</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-primary mb-2">Maplewood Transformation</h3>
+                        <p class="text-secondary mb-4">Complete renovation of a 3-bedroom home including kitchen, bathrooms, flooring, and exterior.</p>
+                        <div class="flex justify-between items-center">
+                            <div>
+                                <span class="text-primary font-bold">$245,000</span>
+                                <span class="text-secondary text-sm ml-1">purchase price</span>
+                            </div>
+                            <div>
+                                <span class="text-primary font-bold">$425,000</span>
+                                <span class="text-secondary text-sm ml-1">after renovation</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Property 2 -->
+                <div class="property-card rounded-lg overflow-hidden">
+                    <div class="relative pb-2/3 h-64 overflow-hidden">
+                        <img class="absolute h-full w-full object-cover" src="https://images.unsplash.com/photo-1605276374104-dee2a0ed3cd6?ixlib=rb-4.0.3" alt="Renovated property">
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center mb-2">
+                            <span class="text-brand font-semibold">Before & After</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-primary mb-2">Riverside Modernization</h3>
+                        <p class="text-secondary mb-4">Full modernization of a 1950s ranch home with open concept living and premium finishes.</p>
+                        <div class="flex justify-between items-center">
+                            <div>
+                                <span class="text-primary font-bold">$180,000</span>
+                                <span class="text-secondary text-sm ml-1">purchase price</span>
+                            </div>
+                            <div>
+                                <span class="text-primary font-bold">$375,000</span>
+                                <span class="text-secondary text-sm ml-1">after renovation</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Property 3 -->
+                <div class="property-card rounded-lg overflow-hidden">
+                    <div class="relative pb-2/3 h-64 overflow-hidden">
+                        <img class="absolute h-full w-full object-cover" src="https://images.unsplash.com/photo-1600566752227-8f61dcc2a81e?ixlib=rb-4.0.3" alt="Renovated property">
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center mb-2">
+                            <span class="text-brand font-semibold">Before & After</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-primary mb-2">Historic District Revival</h3>
+                        <p class="text-secondary mb-4">Preserved historic charm while updating all systems and creating a gourmet kitchen.</p>
+                        <div class="flex justify-between items-center">
+                            <div>
+                                <span class="text-primary font-bold">$310,000</span>
+                                <span class="text-secondary text-sm ml-1">purchase price</span>
+                            </div>
+                            <div>
+                                <span class="text-primary font-bold">$550,000</span>
+                                <span class="text-secondary text-sm ml-1">after renovation</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-12">
+                <a href="#" class="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md shadow-sm text-white btn-primary">
+                    View More Renovations
+                    <i class="fas fa-arrow-right ml-2"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Us Section -->
+    <section id="about" class="py-16 bg-secondary">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="lg:grid lg:grid-cols-2 lg:gap-8 items-center">
+                <div class="mb-12 lg:mb-0">
+                    <img class="rounded-lg shadow-xl" src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?ixlib=rb-4.0.3" alt="Our team">
+                </div>
+                
+                <div>
+                    <h2 class="text-3xl font-extrabold text-primary sm:text-4xl mb-6">25 Years of Real Estate Excellence</h2>
+                    <p class="text-secondary mb-6">Founded in 1998, Premier Home Solutions has helped thousands of homeowners sell their properties quickly and for fair prices. Our team of experienced real estate professionals, contractors, and designers work together to provide seamless transactions and beautiful renovations.</p>
+                    
+                    <div class="space-y-4">
+                        <div class="flex items-start">
+                            <div class="flex-shrink-0 mt-1">
+                                <i class="fas fa-check-circle text-success text-xl"></i>
+                            </div>
+                            <div class="ml-3">
+                                <p class="text-primary font-medium">Over 1,200 homes purchased</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="flex-shrink-0 mt-1">
+                                <i class="fas fa-check-circle text-success text-xl"></i>
+                            </div>
+                            <div class="ml-3">
+                                <p class="text-primary font-medium">500+ homes renovated and sold</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="flex-shrink-0 mt-1">
+                                <i class="fas fa-check-circle text-success text-xl"></i>
+                            </div>
+                            <div class="ml-3">
+                                <p class="text-primary font-medium">A+ Rating with the Better Business Bureau</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="flex-shrink-0 mt-1">
+                                <i class="fas fa-check-circle text-success text-xl"></i>
+                            </div>
+                            <div class="ml-3">
+                                <p class="text-primary font-medium">Local market experts in 5 counties</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="py-16 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-extrabold text-primary sm:text-4xl">What Our Clients Say</h2>
+                <p class="mt-4 max-w-2xl text-xl text-secondary mx-auto">Hear from homeowners who've worked with us</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="testimonial-card p-8 rounded-lg">
+                    <div class="flex items-center mb-4">
+                        <div class="flex-shrink-0">
+                            <img class="h-10 w-10 rounded-full" src="https://randomuser.me/api/portraits/women/32.jpg" alt="Sarah J.">
+                        </div>
+                        <div class="ml-3">
+                            <p class="text-sm font-medium text-primary">Sarah J.</p>
+                            <div class="flex text-yellow-400">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-secondary italic">"After my divorce, I needed to sell quickly. Premier Home Solutions gave me a fair offer and closed in just 10 days. They handled everything professionally and made a difficult time much easier."</p>
+                </div>
+                
+                <div class="testimonial-card p-8 rounded-lg">
+                    <div class="flex items-center mb-4">
+                        <div class="flex-shrink-0">
+                            <img class="h-10 w-10 rounded-full" src="https://randomuser.me/api/portraits/men/45.jpg" alt="Michael T.">
+                        </div>
+                        <div class="ml-3">
+                            <p class="text-sm font-medium text-primary">Michael T.</p>
+                            <div class="flex text-yellow-400">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-secondary italic">"I inherited a property that needed major work. Instead of dealing with contractors and listing it, I sold to Premier. Their offer was better than I expected and the process was seamless."</p>
+                </div>
+                
+                <div class="testimonial-card p-8 rounded-lg">
+                    <div class="flex items-center mb-4">
+                        <div class="flex-shrink-0">
+                            <img class="h-10 w-10 rounded-full" src="https://randomuser.me/api/portraits/women/68.jpg" alt="Lisa M.">
+                        </div>
+                        <div class="ml-3">
+                            <p class="text-sm font-medium text-primary">Lisa M.</p>
+                            <div class="flex text-yellow-400">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-secondary italic">"We needed to relocate quickly for a job opportunity. Premier bought our home in as-is condition and closed in 2 weeks. Their team was professional and responsive throughout the entire process."</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section class="bg-brand text-white py-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 class="text-3xl font-extrabold sm:text-4xl mb-6">Ready to Sell Your Home Fast?</h2>
+            <p class="text-xl mb-8 max-w-3xl mx-auto">Get a no-obligation cash offer within 24 hours. No fees, no commissions, no hassle.</p>
+            <div class="flex flex-col sm:flex-row justify-center gap-4">
+                <a href="#sell" class="btn-secondary font-bold py-3 px-6 rounded-lg transition duration-300">Get Your Offer Now</a>
+                <a href="tel:+18005551234" class="bg-transparent hover:bg-brand-dark border-2 border-white text-white font-bold py-3 px-6 rounded-lg transition duration-300">
+                    <i class="fas fa-phone mr-2"></i> (800) 555-1234
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-16 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="lg:grid lg:grid-cols-2 lg:gap-8">
+                <div class="mb-12 lg:mb-0">
+                    <h2 class="text-3xl font-extrabold text-primary sm:text-4xl mb-6">Contact Us</h2>
+                    <p class="text-secondary mb-8">Have questions? Our team is here to help. Reach out anytime.</p>
+                    
+                    <div class="space-y-6">
+                        <div class="flex">
+                            <div class="flex-shrink-0">
+                                <i class="fas fa-map-marker-alt text-brand text-xl"></i>
+                            </div>
+                            <div class="ml-3">
+                                <h3 class="text-lg font-medium text-primary">Our Office</h3>
+                                <p class="text-secondary">123 Real Estate Way, Suite 100<br>Anytown, ST 12345</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex">
+                            <div class="flex-shrink-0">
+                                <i class="fas fa-phone-alt text-brand text-xl"></i>
+                            </div>
+                            <div class="ml-3">
+                                <h3 class="text-lg font-medium text-primary">Phone</h3>
+                                <p class="text-secondary">(800) 555-1234<br>Mon-Fri: 9am-6pm</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex">
+                            <div class="flex-shrink-0">
+                                <i class="fas fa-envelope text-brand text-xl"></i>
+                            </div>
+                            <div class="ml-3">
+                                <h3 class="text-lg font-medium text-primary">Email</h3>
+                                <p class="text-secondary">info@premierhomesolutions.com</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div>
+                    <form class="space-y-6">
+                        <div>
+                            <label for="contact-name" class="block text-sm font-medium text-secondary">Full Name</label>
+                            <input type="text" id="contact-name" name="contact-name" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-brand focus:border-brand">
+                        </div>
+                        
+                        <div>
+                            <label for="contact-email" class="block text-sm font-medium text-secondary">Email Address</label>
+                            <input type="email" id="contact-email" name="contact-email" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-brand focus:border-brand">
+                        </div>
+                        
+                        <div>
+                            <label for="contact-phone" class="block text-sm font-medium text-secondary">Phone Number</label>
+                            <input type="tel" id="contact-phone" name="contact-phone" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-brand focus:border-brand">
+                        </div>
+                        
+                        <div>
+                            <label for="contact-subject" class="block text-sm font-medium text-secondary">Subject</label>
+                            <select id="contact-subject" name="contact-subject" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-brand focus:border-brand">
+                                <option>Selling My Home</option>
+                                <option>General Inquiry</option>
+                                <option>Renovation Services</option>
+                                <option>Other</option>
+                            </select>
+                        </div>
+                        
+                        <div>
+                            <label for="contact-message" class="block text-sm font-medium text-secondary">Message</label>
+                            <textarea id="contact-message" name="contact-message" rows="4" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-brand focus:border-brand"></textarea>
+                        </div>
+                        
+                        <div>
+                            <button type="submit" class="w-full btn-primary py-3 px-4 rounded-md shadow-sm text-sm font-medium focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-brand">
+                                Send Message
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Premier Home Solutions</h3>
+                    <p class="text-gray-400">We buy homes fast and transform properties into beautiful living spaces. Serving homeowners since 1998.</p>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Quick Links</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#home" class="text-gray-400 hover:text-white">Home</a></li>
+                        <li><a href="#sell" class="text-gray-400 hover:text-white">Sell Your Home</a></li>
+                        <li><a href="#portfolio" class="text-gray-400 hover:text-white">Our Portfolio</a></li>
+                        <li><a href="#about" class="text-gray-400 hover:text-white">About Us</a></li>
+                        <li><a href="#contact" class="text-gray-400 hover:text-white">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Services</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-white">Cash Home Buyers</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">Home Renovations</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">Property Investment</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">Estate Solutions</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Connect With Us</h3>
+                    <div class="flex space-x-4 mb-4">
+                        <a href="#" class="text-gray-400 hover:text-white">
+                            <i class="fab fa-facebook-f text-xl"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white">
+                            <i class="fab fa-twitter text-xl"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white">
+                            <i class="fab fa-instagram text-xl"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white">
+                            <i class="fab fa-linkedin-in text-xl"></i>
+                        </a>
+                    </div>
+                    <p class="text-gray-400">Subscribe to our newsletter</p>
+                    <div class="mt-2 flex">
+                        <input type="email" placeholder="Your email" class="py-2 px-3 rounded-l-md text-gray-900 w-full">
+                        <button class="bg-brand hover:bg-brand-dark text-white py-2 px-4 rounded-r-md">
+                            <i class="fas fa-paper-plane"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 mt-8 pt-8 flex flex-col md:flex-row justify-between items-center">
+                <p class="text-gray-400 text-sm">© 2023 Premier Home Solutions. All rights reserved.</p>
+                <div class="flex space-x-6 mt-4 md:mt-0">
+                    <a href="#" class="text-gray-400 hover:text-white text-sm">Privacy Policy</a>
+                    <a href="#" class="text-gray-400 hover:text-white text-sm">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        const mobileMenuButton = document.querySelector('.mobile-menu-button');
+        const mobileMenu = document.querySelector('.mobile-menu');
+        
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+        
+        // Form submission
+        const offerForm = document.getElementById('offerForm');
+        
+        offerForm.addEventListener('submit', (event) => {
+            event.preventDefault();
+            // Add your form submission logic here
+        });
+    </script>
+</body>
+           
+</html>
