@@ -1,5 +1,4 @@
 name = "longhorn-realty-website"
 compatibility_date = "2025-04-28"
+pages_build_output_dir = "./"
 
-[site]
-bucket = "./"   # <- because your index.html is in root
