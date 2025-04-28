@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Team Cards</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .card {
+            transition: all 0.3s ease;
+            transform-style: preserve-3d;
+        }
+        .card:hover {
+            transform: translateY(-5px) rotateX(5deg);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0) 100%);
+            border-radius: 0.75rem;
+            z-index: 1;
+        }
+    </style>
+</head>
+<body class="bg-gradient-to-br from-gray-100 to-gray-200 min-h-screen py-12 px-4 sm:px-6 lg:px-8">
+    <div class="max-w-7xl mx-auto">
+        <div class="text-center mb-12">
+            <h1 class="text-4xl font-bold text-gray-800 mb-4">Meet Our Team</h1>
+            <p class="text-xl text-gray-600 max-w-2xl mx-auto">Click on any card below to view their digital profile</p>
+        </div>
+        
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <!-- Soroush Card -->
+            <a href="digi-card-soroush.html" class="group">
+                <div class="card bg-gradient-to-br from-blue-500 to-blue-600 rounded-xl p-6 h-full flex flex-col relative overflow-hidden">
+                    <div class="flex items-center mb-6 z-10">
+                        <div class="w-16 h-16 rounded-full bg-white flex items-center justify-center shadow-lg">
+                            <i class="fas fa-user-astronaut text-3xl text-blue-600"></i>
+                        </div>
+                        <div class="ml-4">
+                            <h3 class="text-2xl font-bold text-white">Soroush</h3>
+                            <p class="text-blue-100">Real Estate</p>
+                        </div>
+                    </div>
+                    <div class="mt-auto z-10">
+                        <div class="flex items-center justify-between">
+                            <span class="text-blue-200 text-sm">View Profile</span>
+                            <div class="w-8 h-8 rounded-full bg-white bg-opacity-20 flex items-center justify-center group-hover:bg-opacity-30 transition-all">
+                                <i class="fas fa-arrow-right text-white"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </a>
+            
+            <!-- Arash Card -->
+            <a href="digi-card-arash.html" class="group">
+                <div class="card bg-gradient-to-br from-purple-500 to-purple-600 rounded-xl p-6 h-full flex flex-col relative overflow-hidden">
+                    <div class="flex items-center mb-6 z-10">
+                        <div class="w-16 h-16 rounded-full bg-white flex items-center justify-center shadow-lg">
+                            <i class="fas fa-code text-3xl text-purple-600"></i>
+                        </div>
+                        <div class="ml-4">
+                            <h3 class="text-2xl font-bold text-white">Arash</h3>
+                            <p class="text-purple-100">Real Estate Agent</p>
+                        </div>
+                    </div>
+                    <div class="mt-auto z-10">
+                        <div class="flex items-center justify-between">
+                            <span class="text-purple-200 text-sm">View Profile</span>
+                            <div class="w-8 h-8 rounded-full bg-white bg-opacity-20 flex items-center justify-center group-hover:bg-opacity-30 transition-all">
+                                <i class="fas fa-arrow-right text-white"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </a>
+            
+            <!-- Joseph Card -->
+            <a href="digi-card-joseph.html" class="group">
+                <div class="card bg-gradient-to-br from-green-500 to-green-600 rounded-xl p-6 h-full flex flex-col relative overflow-hidden">
+                    <div class="flex items-center mb-6 z-10">
+                        <div class="w-16 h-16 rounded-full bg-white flex items-center justify-center shadow-lg">
+                            <i class="fas fa-lightbulb text-3xl text-green-600"></i>
+                        </div>
+                        <div class="ml-4">
+                            <h3 class="text-2xl font-bold text-white">Joseph</h3>
+                            <p class="text-green-100">Real Estate Agent</p>
+                        </div>
+                    </div>
+                    <div class="mt-auto z-10">
+                        <div class="flex items-center justify-between">
+                            <span class="text-green-200 text-sm">View Profile</span>
+                            <div class="w-8 h-8 rounded-full bg-white bg-opacity-20 flex items-center justify-center group-hover:bg-opacity-30 transition-all">
+                                <i class="fas fa-arrow-right text-white"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </a>
+        </div>
+        
+        <div class="mt-12 text-center">
+            <p class="text-gray-500">Click on any card to view more details about each team member</p>
+        </div>
+    </div>
+</body>
+</html>
